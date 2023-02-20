@@ -1,0 +1,122 @@
+
+<script>
+function Pay_U2A_1testPi() {
+
+
+// Authenticate the user, and get permission to request payments from them:
+//const scopes = ['payments'];
+
+// Read more about this callback in the SDK reference:
+function onIncompletePaymentFound(payment) { /* ... */ };
+
+document.getElementById("hello").innerHTML = "paypaypay, " + scopes.join();
+Pi.createPayment({
+  // Amount of π to be paid:
+  amount: 1.00,
+  // An explanation of the payment - will be shown to the user:
+  memo: "bet for Pi Bingo", // e.g: "Digital kitten #1234",
+  // An arbitrary developer-provided metadata object - for your own usage:
+  metadata: { ProductID:1234 }, // e.g: { kittenId: 1234 }
+}, {
+  // Callbacks you need to implement - read more about those in the detailed docs linked below:
+  onReadyForServerApproval: function(paymentId) { /* ... */ },
+  onReadyForServerCompletion: function(paymentId, txid) { /* ... */ },
+  onCancel: function(paymentId) { /* ... */ },
+  onError: function(error, payment) { /* ... */ },
+});
+
+/*
+const paymentData = {
+  amount: 1.0,
+  memo: "mayment for Pi Biongo",
+  metadata: { sample:1234 }
+};
+
+const paymentCallbacks = {
+  onReadyForServerApproval: (paymentId) => {},
+  onReadyForServerCompletion: (paymentId, txid) => {},
+  onCancel: (paymentId) => {},
+  onError: (error, payment) => {}
+};
+
+(async () => {
+  try {
+    //const Pi = window.Pi;
+    //Pi.init({ version: "2.0" });
+    const payment = await Pi.createPayment(paymentData, paymentCallbacks);
+document.getElementById("hello").innerHTML = "paypaypay, " + scopes.join();
+  } catch (error) {
+    console.error(error);
+  }
+})();
+*/
+
+return Promise.resolve();
+
+}
+
+function go_Pay_U2A_1testPi(){
+
+Pay_U2A_1testPi().then(function() {
+  // Pay_U2A_1testPi() の処理が終了したら、func() を実行
+  func();
+});
+
+}
+
+////////////////////////////////
+
+flg=0;
+function func() {
+  oto_piko();
+  //Pay_U2A_1testPi();
+  sid = setInterval(function() {
+    flg++;
+    var random = Math.floor( Math.random() * 10 ) ;
+    random++;
+    ss = '<b><span style="font-size:300%;color:green;">' 
+       + String(random) 
+       + '</span></b>';
+    document.getElementById("ABC").innerHTML =  ss ;
+    if (flg>25){
+       clearInterval(sid);
+    }
+    oto_chi();
+  }, 100);
+  flg=0;
+
+}
+ 
+
+
+function click1to10() {
+  document.getElementById("btn1")
+}
+
+function oto_piko() {
+  var sound = new Audio('audio/piko.mp3');
+  sound.play();
+}
+function oto_chi() {
+  var sound = new Audio('audio/chi.mp3');
+  sound.play();
+}
+
+function click01() {document.getElementById("gid").value = "1";}
+function click02() {document.getElementById("gid").value = "2";}
+function click03() {document.getElementById("gid").value = "3";}
+function click04() {document.getElementById("gid").value = "4";}
+function click05() {document.getElementById("gid").value = "5";}
+function click06() {document.getElementById("gid").value = "6";}
+function click07() {document.getElementById("gid").value = "7";}
+function click08() {document.getElementById("gid").value = "8";}
+function click09() {document.getElementById("gid").value = "9";}
+function click10() {document.getElementById("gid").value = "10";}
+
+
+
+
+//setTimeout(function() { 
+//document.getElementById("hello").innerHTML = "bbbbbbbbbb, " + scopes.join();
+//}, 10000);
+</script>

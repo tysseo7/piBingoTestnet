@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Pi Bingo</title>
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" href="./text/style3.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react-dom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        
+<!--
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+-->
+        
+
+        
+</head>
+<body>
+
+<script src="https://sdk.minepi.com/pi-sdk.js"></script>
+<script>Pi.init({ version: "2.0" })</script>
+
+
+<script>
+Pi.authenticate(scopes, onIncompletePaymentFound).then(function(auth) {
+  console.log(`Hi there! You're ready to make payments!`);
+}).catch(function(error) {
+  console.error(error);
+});
+</script>
+
+
+
+
+<!--
+        <script src="https://sdk.minepi.com/pi-sdk.js"></script>
+
+        <script type="text/javascript">
+            //const scopes = ['username', 'payments', 'wallet_address'];
+            //const scopes = ['username',  'wallet_address'];
+/*
+            $( document ).ready(function() {
+                const Pi = window.Pi;
+                Pi.init({ version: "2.0" });
+                
+                
+                async function auth() {
+                    try {
+                        // Identify the user with their username / unique network-wide ID, and get permission to request payments from them.
+                        //const scopes = ['username', 'payments'];
+                        //const scopes = ['username', 'payments', 'wallet_address'];
+                       
+//alert("set scopes usee: "+ scopes['username']);  // pass
+                        function onIncompletePaymentFound(payment) {
+
+                        }; // Read more about this in the SDK reference
+
+                        Pi.authenticate(scopes, onIncompletePaymentFound).then(function(auth) {
+                            $("#username").html(" " + auth.user.username);
+                        }).catch(function(error) {
+                            //Pi.openShareDialog("Error", error);
+                            //alert(err);
+                            console.error(error);
+                        });
+                    } catch (err) {
+                        //Pi.openShareDialog("Error", err);
+                        //alert(err);
+                        console.error(err);
+                        // Not able to fetch the user
+                    }
+                }
+
+                            
+                
+                auth();
+                alert( "auth done " + scopes['username']);
+                
+                const shareData = {
+                    title: 'Pi Bingo Platform',
+                    text: 'Hi. Check it out this Pi App: Pi Bingo . Try it in Pi Browser. #PiNetwork #PiApps ',
+                }
+
+
+
+            })
+
+*/
+
+                //auth();  <== not define 
+
+
+
+
+
+-->
+
+
+
+<!-- for backend -->
+<!--
+<script src="seo.js"> </script>
+-->
+
+
+<script>
+function Pay_U2A_1testPi() {
+
+
+
+//Pi.createPayment({
+//  // Amount of π to be paid:
+//  amount: 1.00,
+//  // An explanation of the payment - will be shown to the user:
+//  memo: "bet for Pi Bingo", // e.g: "Digital kitten #1234",
+//  // An arbitrary developer-provided metadata object - for your own usage:
+//  metadata: { ProductID:1234 }, // e.g: { kittenId: 1234 }
+//}, {
+//  // Callbacks you need to implement - read more about those in the detailed docs linked below:
+//  onReadyForServerApproval: function(paymentId) { /* ... */ },
+//  onReadyForServerCompletion: function(paymentId, txid) { /* ... */ },
+//  onCancel: function(paymentId) { /* ... */ },
+//  onError: function(error, payment) { /* ... */ },
+//});
+
+const paymentData = {
+  amount: 1.0,
+  memo: "mayment for Pi Biongo",
+  metadata: { sample:1234 }
+};
+
+const paymentCallbacks = {
+  onReadyForServerApproval: (paymentId) => {},
+  onReadyForServerCompletion: (paymentId, txid) => {},
+  onCancel: (paymentId) => {},
+  onError: (error, payment) => {}
+};
+
+(async () => {
+  try {
+    //const Pi = window.Pi;
+    //Pi.init({ version: "2.0" });
+    const payment = await Pi.createPayment(paymentData, paymentCallbacks);
+  } catch (error) {
+    console.error(error);
+  }
+})();
+
+return Promise.resolve();
+
+}
+
+
+function go_Pay_U2A_1testPi(){
+
+Pay_U2A_1testPi().then(function() {
+  // Pay_U2A_1testPi() の処理が終了したら、func() を実行
+  func();
+});
+
+}
+
+////////////////////////////////
+
+flg=0;
+function func() {
+  oto_piko();
+  //Pay_U2A_1testPi();
+  sid = setInterval(function() {
+    flg++;
+    var random = Math.floor( Math.random() * 10 ) ;
+    random++;
+    ss = '<b><span style="font-size:300%;color:green;">' 
+       + String(random) 
+       + '</span></b>';
+    document.getElementById("ABC").innerHTML =  ss ;
+    if (flg>25){
+       clearInterval(sid);
+    }
+    oto_chi();
+  }, 100);
+  flg=0;
+
+}
+ 
+
+
+function click1to10() {
+  document.getElementById("btn1")
+}
+
+function oto_piko() {
+  var sound = new Audio('audio/piko.mp3');
+  sound.play();
+}
+function oto_chi() {
+  var sound = new Audio('audio/chi.mp3');
+  sound.play();
+}
+
+function click01() {document.getElementById("gid").value = "1";}
+function click02() {document.getElementById("gid").value = "2";}
+function click03() {document.getElementById("gid").value = "3";}
+function click04() {document.getElementById("gid").value = "4";}
+function click05() {document.getElementById("gid").value = "5";}
+function click06() {document.getElementById("gid").value = "6";}
+function click07() {document.getElementById("gid").value = "7";}
+function click08() {document.getElementById("gid").value = "8";}
+function click09() {document.getElementById("gid").value = "9";}
+function click10() {document.getElementById("gid").value = "10";}
+
+
+
+
+setTimeout(function() { 
+document.getElementById("hello").innerHTML = "Hello, " + scopes['username'] ;
+}, 10000);
+</script>
+
+
+
+
+<div id="hello" ></div>
+
+<div >You Pay 1 test-Pi to Play</div>
+
+<br>
+<br>
+
+<p> Number You Gess </p>
+
+<table class="table1">
+  <tr>
+    <td><button onclick="click01()">1</button></td>
+    <td><button onclick="click02()">2</button></td>
+    <td><button onclick="click03()">3</button></td>
+    <td><button onclick="click04()">4</button></td>
+    <td><button onclick="click05()">5</button></td>
+  </tr>
+  <tr>
+    <td><button onclick="click06()">6</button></td>
+    <td><button onclick="click07()">7</button></td>
+    <td><button onclick="click08()">8</button></td>
+    <td><button onclick="click09()">9</button></td>
+    <td><button onclick="click10()">10</button></td>
+  </tr>
+</table>
+<input id="gid" type="text" maxlength=10>
+
+
+<br><br><br>
+<div id="ABC" style="text-align:center">Ready?</div>
+<div style="text-align:center">
+<button style="text-align:center" onclick="go_Pay_U2A_1testPi()">START</button>
+</div>
+
+<br>
+
+
+
+
+
+<div id="p100id"></div>
+<br>
+<div id="p080id"></div>
+
+
+<script>
+  //const fs = require('fs');
+  //const data = JSON.parse(fs.readFileSync('https://api.testnet.minepi.com/accounts/GDUEMQ2HJNZ5GXZIMFXPCIYZ36PXDEWSWJ373POIJ3ECVEWTSWDKGRU6', utf8))
+
+  var p100p = 100.0;
+  var p080p = p100p * 0.8;
+  var str = '<span style="color:blue;">' + p100p + '</span> test-Pi in pool';
+  //var str = "test";
+  document.getElementById("p100id").innerHTML = str ;
+  var str = 'if you win you can recieve<br>'
+          + '80% of pool, <b><span style="font-size:120%;color:blue;">' 
+          + p080p + '</span></b> test Pi';
+  document.getElementById("p080id").innerHTML = str ;
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Payment Demo</title>
+</head>
+<body>
+	<button id="payButton">Pay Now</button>
+	<div id="paymentStatus"></div>
+
+	<script src="https://sdk.minepi.com/pi-sdk.js"></script>
+	<script>
+		// PiアプリSDKの初期化
+		Pi.init({
+			version: '2.0',
+			scopes: ['payments'],
+			callback: 'https://example.com/payment-callback',
+			app: {
+				displayName: 'My Payment App'
+			}
+		});
+
+		// 支払いを行うための関数
+		function pay() {
+			Pi.createPayment({
+				amount: 10,
+				memo: 'Test Payment',
+				meta: { customKey: 'customValue' }
+			}).then(function(result) {
+				// 認証が必要な場合は認証を行う
+				if (result.requiresAuthentication) {
+					Pi.authenticate().then(function() {
+						// 認証が完了したら再度支払いを試行する
+						pay();
+					});
+				} else if (result.paymentIncomplete) {
+					// 未完了の支払いがある場合はユーザに通知する
+					document.getElementById('paymentStatus').textContent = 'Payment incomplete. Please check your Pi App.';
+					Pi.onIncompletePaymentFound().then(function() {
+						// 支払いが完了したら再読み込みする
+						location.reload();
+					});
+				} else {
+					// 支払いが完了した場合は成功メッセージを表示する
+					document.getElementById('paymentStatus').textContent = 'Payment successful.';
+				}
+			}).catch(function(error) {
+				// エラーが発生した場合はエラーメッセージを表示する
+				document.getElementById('paymentStatus').textContent = 'Error: ' + error.message;
+			});
+		}
+
+		// ボタンをクリックしたら支払いを行う
+		document.getElementById('payButton').addEventListener('click', pay);
+	</script>
+</body>
+</html>
+
